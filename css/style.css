@@ -115,9 +115,27 @@ body {
  .reason--wrapper button:focus, .reason--wrapper button:active {
 	 outline: 0;
 }
+.send--message--log--wrapper,
+.reporting--wrapper {
+    width: 900px;
+    min-width: 900px;
+    margin: 0 auto;
+    min-height: calc(100vh - 220px);
+}
+.range--wrapper > label{
+  font-size: 20px;
+  font-weight: 400;
+}
+.range--wrapper > button{
+  margin-top: 33px;
+}
+.range--wrapper{
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
 
 @media  screen and (max-width:767px){
-	.feedback--wrapper {
+	.feedback--wrapper,.reporting--wrapper ,.send--message--log--wrapper {
 		width: 100%;
 		min-width: 100%;
 		padding: 0 15px;

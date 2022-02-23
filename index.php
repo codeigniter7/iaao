@@ -5,7 +5,7 @@
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <title>Imtiaz Al Arabia Co.</title>
-      <link rel="stylesheet" href="<?php echo $_SERVER['REQUEST_URI']; ?>css/bootstrap.min.css">
+      <link rel="stylesheet" href="./css/bootstrap.min.css">
       <link rel="stylesheet" href="<?php echo $_SERVER['REQUEST_URI']?>css/style.css">
       <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
       <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -20,7 +20,7 @@
   <header>
    <div class="top--line"></div>
    <div class="logo">
-     <img src="<?php echo $_SERVER['REQUEST_URI']; ?>img/logo.webp"/>
+     <img src="./img/logo.webp"/>
    </div>
   </header>
   <main class="feedback--wrapper">
@@ -59,7 +59,7 @@
     <h4></h4>
     <input type="hidden" name="_feedback" value="<?php echo time(); ?>"/>
     <textarea name="reason" id="reason" rows="5" class="form-control" required></textarea>
-    <button class="btn btn-success" type="submit">Submit Your Feedback</button>    
+    <button class="btn btn-success" type="submit">Submit</button>    
   </div>
 </form>
 
@@ -69,8 +69,8 @@
   </footer>
 </div>   
 
-      <script src="<?php echo $_SERVER['REQUEST_URI']; ?>js/jquery-1.12.4.min.js"></script>
-      <script src="<?php echo $_SERVER['REQUEST_URI']; ?>js/bootstrap.min.js"></script>
+      <script src="./js/jquery-1.12.4.min.js"></script>
+      <script src="./js/bootstrap.min.js"></script>
       <script>
 
 
@@ -83,11 +83,14 @@ $('.rating--input').on('click', function() {
 
   var rating = $(this).val();
   var p = $(this).parent().find("p").text();
+
   if(rating <=3){
-    $('.reason--wrapper').css('display', "block");
+ 
+    $('.reason--wrapper,.reason--wrapper textarea,.reason--wrapper h4').css('display', "block");
     $('.reason--wrapper > h4').html("Please tell us a little bit about why you chose "+p+"")
   }else{
-    $('.reason--wrapper').hide();
+    $('.reason--wrapper textarea,.reason--wrapper h4').hide();
+    $('.reason--wrapper button').show();
   }
 
   });
@@ -100,7 +103,7 @@ $('.rating--input').on('click', function() {
     
         $.ajax({
             method: 'POST',
-            url: "<?php echo $_SERVER['REQUEST_URI']; ?>ajax.php",
+            url: "./ajax.php",
             dataType: 'json',
             data: data,
             beforeSend: function(xhr) {
